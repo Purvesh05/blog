@@ -1,7 +1,7 @@
 <?php session_start(); ob_start(); 
 include("includes/db.php");
 include("includes/function.php");
-$uid = $_SESSION['id'];?>
+$uid = '1';?>
 <!DOCTYPE html>
 <html lang="en">
 

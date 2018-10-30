@@ -5,9 +5,9 @@ include("includes/function.php");
 
 if(isset($_POST['blog_submit'])){
 	$title = string_check($_POST['blogtitle']);
-	$content = string_check($_POST['content']);
+	$content = string_check($_POST['editor1']);
 	$authorname = string_check($_POST['authorname']);
-
+	$like = '0';
 $sql="INSERT into blog (title,content,aurthor_name,date) values('$title','$content','$authorname',now())";
 if (!mysqli_query($conn,$sql))
 {
@@ -47,7 +47,7 @@ mysqli_close($conn);
 					</tr>
 					<tr>
 						<td>Content :</td>
-						<td><textarea id="content" class="form-control" name="content"></textarea></td>
+						<td><textarea name="editor1" id="content" class="form-control" ></textarea></td>
 					</tr>
 					<tr>
 						<td>Author Name : </td>
@@ -66,15 +66,13 @@ mysqli_close($conn);
 	</form>
 </body>
 
-<script>
-	tinymce.init({
-		selector: 'textarea'
-	});
+<script src="https://cdn.ckeditor.com/4.7.1/standard/ckeditor.js"></script>
+  <script>
+      CKEDITOR.replace( 'editor1' );
+  </script>
 
-</script>
 
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/jquery-3.2.1.min.js"></script>
+ <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>  
 
 </html>
